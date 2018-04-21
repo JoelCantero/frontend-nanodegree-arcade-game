@@ -13,6 +13,8 @@
  * writing app.js a little simpler to work with.
  */
 
+let counter = document.getElementById('counter');
+
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -78,8 +80,8 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
+        checkCollisions();
         updateEntities(dt);
-        // checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -183,3 +185,9 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
 })(this);
+
+function updateCounter() {
+    counter.textContent++;
+}
+
+

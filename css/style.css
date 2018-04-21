@@ -1,3 +1,10 @@
 body {
     text-align: center;
 }
+.statics {
+	text-align: center;
+	width: 505px;
+	height: 100px;
+	margin: auto;
+	background-color: red;
+}
