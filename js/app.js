@@ -98,7 +98,7 @@ class Player {
 // Place the player object in a variable called player
 const player = new Player();
 let allEnemies = [];
-let winCounter = 0;
+let counterPoints = 0;
 
 generateEnemies();
 
@@ -127,16 +127,24 @@ function randomSpeed(dt) {
 }
 
 function win() {
-    ++winCounter;
-    updateCounter(winCounter);
+    ++counterPoints;
+    updateCounter(counterPoints);
+    player.x = 2;
+    player.y = 5;
+}
+
+function lose() {
     player.x = 2;
     player.y = 5;
 }
 
 function checkCollisions() {
     allEnemies.forEach(function(enemy) {
-        if (enemy.x == player.x && enemy.y == player.y) {
-            console.log('Collision!');
+        if (player.x < enemy.x + 0.7 && 
+            player.x + 0.7 > enemy.x &&
+            player.y < enemy.y + 0.7 &&
+            0.7 + player.y > enemy.y) {
+            lose();
         }
     });
 }

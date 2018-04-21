@@ -1,4 +1,4 @@
-# [Udacity Classic Arcade Game Clone](https://github.com/udacity/frontend-nanodegree-arcade-game))
+# [Udacity Classic Arcade Game Clone](https://github.com/udacity/frontend-nanodegree-arcade-game)
 ===============================
 
 A Udacity project from Front-End Web Developer Nanodegree. This project is about a JavaScript game. The goal of the player is to reach the water, without colliding into any of the bug enemies. The player can move left, right, up and down. The enemies move in varying speeds on the paved block portion of the scene. Once a the player collides with an enemy, the game is reset and the player moves back to the start square. Once the player reaches the water, the game is won.
