@@ -5,7 +5,7 @@ A Udacity project from Front-End Web Developer Nanodegree. This project is about
 
 ## How to play
 
-1. You can play it live (see above)
+1. You can play it live (see below)
 2. Download this repository, and executes index.html
 
 ## Demo
