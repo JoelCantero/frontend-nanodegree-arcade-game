@@ -5,8 +5,8 @@ A Udacity project from Front-End Web Developer Nanodegree. This project is about
 
 ## How to play
 
-> You can play it live (see above)
-> Download this repository, and executes index.html
+1. You can play it live (see above)
+2. Download this repository, and executes index.html
 
 ## Demo
 
