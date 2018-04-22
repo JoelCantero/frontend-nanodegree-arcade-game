@@ -15,6 +15,7 @@ class Enemy {
         this.y = y;
         this.speed = speed;
         this.sprite = 'images/enemy-bug.png';
+        this.counterPoints = 0;
     }
 
     // Update the enemy's position, required method for game
@@ -27,11 +28,19 @@ class Enemy {
             this.speed = randomSpeed();
         }
 
+        
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
     }
-
+    checkCollisions() {
+    	if (player.x < this.x + 0.7 && 
+            player.x + 0.7 > this.x &&
+            player.y < this.y + 0.7 &&
+            0.7 + player.y > this.y) {
+            player.lose();
+        }
+    }
     render() {
         // Draw the enemy on the screen, required method for game
         ctx.drawImage(Resources.get(this.sprite), this.x*101, this.y*83);  
@@ -52,7 +61,7 @@ class Player {
 
     update() {
         if (this.y == 0) {
-            win();
+            this.win();
         }
     }
 
@@ -88,9 +97,20 @@ class Player {
                 break;
 
             default: break;
-        
+        }
     }
-}
+	
+	win() {
+    	++this.counterPoints;
+    	updateCounter(this.counterPoints);
+    	this.x = 2;
+    	this.y = 5;
+	}
+	
+	lose() {
+    	this.x = 2;
+    	this.y = 5;
+	}
 }
 
 // Now instantiate your objects.
@@ -98,7 +118,6 @@ class Player {
 // Place the player object in a variable called player
 const player = new Player();
 let allEnemies = [];
-let counterPoints = 0;
 
 generateEnemies();
 
@@ -124,27 +143,4 @@ function generateEnemies() {
 
 function randomSpeed(dt) {
     return (Math.random()*(MAXSPEED - MINSPEED) + MINSPEED);
-}
-
-function win() {
-    ++counterPoints;
-    updateCounter(counterPoints);
-    player.x = 2;
-    player.y = 5;
-}
-
-function lose() {
-    player.x = 2;
-    player.y = 5;
-}
-
-function checkCollisions() {
-    allEnemies.forEach(function(enemy) {
-        if (player.x < enemy.x + 0.7 && 
-            player.x + 0.7 > enemy.x &&
-            player.y < enemy.y + 0.7 &&
-            0.7 + player.y > enemy.y) {
-            lose();
-        }
-    });
 }

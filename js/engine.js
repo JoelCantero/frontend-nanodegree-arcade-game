@@ -80,7 +80,6 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
-        checkCollisions();
         updateEntities(dt);
     }
 
@@ -94,6 +93,7 @@ var Engine = (function(global) {
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
+            enemy.checkCollisions();
         });
         player.update();
     }
